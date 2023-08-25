@@ -1,13 +1,30 @@
-﻿Update notes for the client made with the Unity project will be added here. This may not be synchronized with the server's update notes. The server update notes can be found at /Server-Unity/UpdateNotes.md.
+﻿# About
+Update notes for the client made with the Unity project will be added here. This may not be synchronized with the server's update notes. For server update notes, go to ~/Server-Unity/UpdateNotes.md.
+
+## v0.1.2
+### In-Progress as of 08/25/2023
+
+## v0.1.1
+### Completed on 08/25/2023
+- PlayerControls.cs renamed to FirstPersonMovement.cs:
+  - PlayerControls class renamed to FirstPersonMovement.
+- Added features to FirstPersonMovement class:
+  - Jumping using Physics.
+  - Gravity now done manually instead of using Rigidbody gravity
+    - Allows a higher force and adjustable direction, since jumps lasted too long.
+- Added 2 packages: DOTween and NaughtyAttributes.
+   - Useful utilities for timed functions and debugging.
+- CustomInput now has a seperate MouseInput() function for easier usage.
 
 ## v0.1.0
-### In-progress as of 08/23/2023
-- Added the file for documenting updates (this file).
+### Completed on 08/24/2023
+- Added UpdateNotes.md for documenting updates (this file).
 - Removed all of the extra assets from the project (tutorial assets and Sample Scene) and reorganized the folders and rendering tools.
 - Added folders for Scripts/ScriptableObjects (which will be used layer).
    - Scripts for Player and other objects may be moved under their own corresponding folders later.
-- Set up the InputAndMovement scene.
+- Set up a basic InputAndMovement scene.
   - Purpose: Getting basic player input/movement working, with no networking (as of 08/23/2023).
+  - Added walls and a floor with colliders.
 - Added PlayerControls.cs with these classes:
   - PlayerControls: Script component for movement, currenlty using Physics. Will be attached to the player GameObject.
   - PlayerInputSettings: A serializeable class for PlayerControls for controlling input sensitivity and limiting looking up/down.

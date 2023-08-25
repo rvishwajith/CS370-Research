@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerInputAsset
   m_EditorClassIdentifier: 
   sensMultiplier: 10
-  pushForceMultiplier: 25
+  pushForceMultiplier: 35

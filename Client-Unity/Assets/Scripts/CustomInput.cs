@@ -60,14 +60,14 @@ public static class CustomInput
         }
     }
 
-    public static Vector3 MouseInput(bool clampMagnitude = false, bool useDeltaTime = false)
+    public static Vector3 MouseInput(float maxMagnitude = -1, bool useDeltaTime = false)
     {
         // X and Y are intentionally reversed.
         var x = Input.GetAxis("Mouse Y");
         var y = Input.GetAxis("Mouse X");
         var result = new Vector3(x, y);
-        if (clampMagnitude)
-            result = Vector3.ClampMagnitude(result, 1);
+        if (maxMagnitude > 0)
+            result = Vector3.ClampMagnitude(result, maxMagnitude);
         if (useDeltaTime)
             result *= Time.deltaTime;
         return result;

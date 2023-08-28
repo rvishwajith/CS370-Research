@@ -1,12 +1,16 @@
 using System;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class FirstPersonMovement : MonoBehaviour
 {
     new public Rigidbody rigidbody;
+
     [SerializeField] private Transform xPivotTransform;
     [SerializeField] private PlayerInputSettings inputSettings;
+    [SerializeField] private Transform groundedRayOrigin;
 
+    // [ReadOnly] private bool isGrounded = false;
     private float xPivotTurn = 0, yPivotTurn = 0;
 
     private void Start()
@@ -17,12 +21,21 @@ public class FirstPersonMovement : MonoBehaviour
 
     private void Update()
     {
-        var isGrounded = true;
         if (Application.isFocused)
         {
             Rotate();
-            if (isGrounded) Jump();
+            if (IsGrounded()) Jump();
         }
+    }
+
+    private bool IsGrounded()
+    {
+        if (groundedRayOrigin == null) return false;
+
+        var origin = groundedRayOrigin.position;
+        var dir = -Vector3.up;
+        var tolerance = groundedRayOrigin.localPosition.y + 0.05f;
+        return Physics.Raycast(new Ray(origin, dir), tolerance);
     }
 
     private void Rotate()
@@ -66,20 +79,20 @@ public class FirstPersonMovement : MonoBehaviour
         ApplyGravity();
     }
 
-    private void ApplyGravity()
-    {
-        var dir = -Vector3.up;
-        var strength = 20f;
-        var force = dir * strength;
-        rigidbody.AddForce(force, ForceMode.Acceleration);
-    }
-
     private void Move()
     {
         if (rigidbody == null) return;
 
         var dir = transform.TransformDirection(CustomInput.MultiAxis(axis: "Move XZ", adjust: true));
         var force = dir * inputSettings.pushForce;
+        rigidbody.AddForce(force, ForceMode.Acceleration);
+    }
+
+    private void ApplyGravity()
+    {
+        var dir = -Vector3.up;
+        var strength = 20f;
+        var force = dir * strength;
         rigidbody.AddForce(force, ForceMode.Acceleration);
     }
 
@@ -116,7 +129,7 @@ public class PlayerInputSettings
     {
         get
         {
-            return inputAsset.pushForceMultiplier;
+            return inputAsset.pushForceStrength;
         }
     }
 

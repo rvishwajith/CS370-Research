@@ -5,6 +5,8 @@ Update notes for the server made with the Unity project will be added here. This
 ### In-progress as of 08/30/2023
 - Added the following packages:
   - NaughtyAttributes: Used for easier debugging in the editor.
+  - DOTween: No planned uses currently, will probably used for any tweening in the future.
+- Rebuilt project because of a Unity glitch (fixed).
 
 ## v0.1.0
 ### Completed on 08/30/2023
@@ -28,6 +30,7 @@ Update notes for the server made with the Unity project will be added here. This
   - ListenOnUDPPort: A component which will be used to test receiving UDP data on an arbitrary port from a local client project.
 - Lowered the quality of many rendering settings such as lighting/post-processing since visualization should be much cheaper than on the client.
   - Normally the server app would run in headless mode instead.
+- Changed backend to IL2CPP.
 
 ## v0.0.0
 ### Completed on 08/21/2023

@@ -1,8 +1,42 @@
 ﻿# About
 Update notes for the server made with the Unity project will be added here. This is not synchronized with the client's update notes.
 
+## v0.2.0
+### In-progress as of 09/11/2023
+![](https://raw.githubusercontent.com/rvishwajith/CS370-Research/main/Screenshots/Server/v0-2-0-multipleClients.png)
+**Multiple clients being tracked and updated simultaneously.**
+- Testing results: All tests for this version run successfully, with no known issues.
+  - Tested using the following setup (macOS), all instances are running simultaneously:
+    - Server (Unity Editor at 60 FPS to reduce extra CPU usage)
+      - UDP 127.0.0.1/5000
+      - TCP: N/A
+    - 1 Editor Client
+    - 1 Build Client
+  - The server seems to work perfectly with multiple clients for the implemented features:
+    - When a new client joins a session with a new ID:
+      - Note: A session is currently anytime the server is running, this won't be changed for a while since the gameplay framework is not going to be implemented until Phase 2.
+      - Client is instantiated using the first data packet.
+      - A new registry is created in the dictionary so the client can be tracked for future data packets.
+    - When a client sends a packet with an existing ID:
+      - The corresponding client instance is looked up and updated successfully.
+
+## v0.1.2
+### Completed on 09/11/2023
+- ListenOnUDPPort is now functional and successfully recieves data from the client.
+  - ISSUE: Does not seem to work when the recieving port and IP address are not set to 127.0.0.1 (loopback IP) and 5000 (arbitrary testing port).
+    - Appears to be an issue in Unity, where the editor only considers the local IP and ignores others.
+    - Unsure of fix, will look into this in the future since testing is still possible for now.
+- Added Constants.cs with the following classes:
+  - Addresses: A static helper class storing IP address (System.Net) objects such as the Local IP (127.0.0.1) and Loopback IP. 
+- Added LockFrameRate.cs with the following classes:
+  - LockFrameRate: A component attached to any object used to reduce the server's frame rate, since a high frame rate is unnecessary for the server and reduces the performance of local clients.
+- Changes to PlayerDataPacket:
+  - Removed all unused properties.
+  - Added identifier - a long to match with the client which will be used for a Dictionary lookup.
+- Some rendering and material settings changed.
+
 ## v0.1.1
-### In-progress as of 08/30/2023
+### Completed on 08/30/2023
 - Added the following packages:
   - NaughtyAttributes: Used for easier debugging in the editor.
   - DOTween: No planned uses currently, will probably used for any tweening in the future.

@@ -1,8 +1,16 @@
 ﻿# About
 Update notes for the server made with the Unity project will be added here. This is not synchronized with the client's update notes.
 
+## v0.2.1
+### Completed as of 09/18/2023
+- Added the PlayerData folder:
+  - Will be used to store non-realtime player data for authentication (username, password, etc).
+    - Files in this folder will be unencrypted and stored as JSON and/or text files, as this folder is only for testing.
+    - Added About.md for explanation of data in this folder.
+- Some cleanup to ListenOnUDPPort.
+
 ## v0.2.0
-### In-progress as of 09/11/2023
+### Completed as of 09/11/2023
 ![](https://raw.githubusercontent.com/rvishwajith/CS370-Research/main/Screenshots/Server/v0-2-0-multipleClients.png)
 **Multiple clients being tracked and updated simultaneously.**
 - Testing results: All tests for this version run successfully, with no known issues.

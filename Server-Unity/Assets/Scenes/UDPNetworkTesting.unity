@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13805138}
   m_Layer: 0
-  m_Name: Evironment
+  m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,9 +420,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 659239757}
-  - component: {fileID: 659239758}
+  - component: {fileID: 659239759}
+  - component: {fileID: 659239760}
   m_Layer: 0
-  m_Name: NetworkController
+  m_Name: NetworkManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,7 +444,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &659239758
+--- !u!114 &659239759
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -455,7 +456,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414fcbf5b80b34e5db908aaa51ebfd48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 1319934532}
+  playerManager: {fileID: 1319934532}
+--- !u!114 &659239760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659239756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f690810c5fe94cb7b7254be337d97c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerManager: {fileID: 1319934532}
 --- !u!1 &811325499
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,7 +609,7 @@ GameObject:
   - component: {fileID: 1319934531}
   - component: {fileID: 1319934532}
   m_Layer: 0
-  m_Name: PlayerRegistry
+  m_Name: InstancedPlayerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,7 +786,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 659239757}
+  - {fileID: 1319934531}
   - {fileID: 1247470137}
   - {fileID: 13805138}
-  - {fileID: 1319934531}
-  - {fileID: 659239757}

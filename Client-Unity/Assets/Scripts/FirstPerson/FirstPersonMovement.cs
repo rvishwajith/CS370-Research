@@ -26,6 +26,11 @@ public class FirstPersonMovement : MonoBehaviour
             Rotate();
             if (IsGrounded()) Jump();
         }
+
+        if (inputSettings.inputAsset.clampHorizontalLinearVelocity)
+        {
+            ClampHorizontalVelocity();
+        }
     }
 
     private bool IsGrounded()
@@ -36,6 +41,17 @@ public class FirstPersonMovement : MonoBehaviour
         var dir = -Vector3.up;
         var tolerance = groundedRayOrigin.localPosition.y + 0.05f;
         return Physics.Raycast(new Ray(origin, dir), tolerance);
+    }
+
+    private void ClampHorizontalVelocity()
+    {
+        var maxHorizontalLinearVelocity = inputSettings.inputAsset.maxHorizontalLinearVelocity;
+        var adjustedVelocity = rigidbody.velocity;
+        var y = rigidbody.velocity.y;
+        adjustedVelocity.y = 0;
+        adjustedVelocity = Vector3.ClampMagnitude(adjustedVelocity, maxHorizontalLinearVelocity);
+        adjustedVelocity.y = y;
+        rigidbody.velocity = adjustedVelocity;
     }
 
     private void Rotate()
@@ -114,7 +130,7 @@ public class FirstPersonMovement : MonoBehaviour
 [Serializable]
 public class PlayerInputSettings
 {
-    [SerializeField] private PlayerInputAsset inputAsset;
+    [SerializeField] public PlayerInputAsset inputAsset;
 
     public float playerSens = 1;
     public float sens

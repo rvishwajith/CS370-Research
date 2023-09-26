@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: PlayerInputAsset
   m_EditorClassIdentifier: 
   sensMultiplier: 10
-  pushForceMultiplier: 30
+  pushForceStrength: 30
+  maxHorizontalLinearVelocity: 10
+  clampHorizontalLinearVelocity: 1

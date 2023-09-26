@@ -18,7 +18,7 @@ public class PlayerInstance : MonoBehaviour
     /// The latest data packet associated with this player's identifier that has been recieved from
     /// the client.
     /// </summary>
-    public PlayerDataPacket latestPacket;
+    public ClientToServerPlayerPacket latestPacket;
 
     /// <summary>
     /// Called on instantiation of the object. Sets default values for the global variables as

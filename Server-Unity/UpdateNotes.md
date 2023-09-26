@@ -1,6 +1,13 @@
 ﻿# About
 Update notes for the server made with the Unity project will be added here. This is not synchronized with the client's update notes.
 
+## v0.2.2
+### Completed as of 09/22/2023
+- Removed Packets.cs, replaced with a new directory "Packets" containing corresponding packet files.
+- Added ClientToServer.cs for packets sent from the client to the server, with the following classes/structs:
+  - ClientToServerPlayerPacket: A replacement for PlayerDataPacket which used to be in Packets.cs, contains the same data.
+- Added ServerToClient.cs for packets sent from the server to the client, wit the following classes/structs:
+
 ## v0.2.1
 ### Completed as of 09/18/2023
 - Added the PlayerData folder:

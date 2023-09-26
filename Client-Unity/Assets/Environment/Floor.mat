@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Floor
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 25096cc823012c14e846190de786a755,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -17,13 +18,20 @@ Material:
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: Opaque
+  stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_d19791cf7a874067bbcf696df741b242:
+        m_Texture: {fileID: 2800000, guid: 7c777d75150ae6646915bdf3000acde2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_d4b820c2ed2448619573db90c65d4b58:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -82,6 +90,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - Boolean_15cb3704bf74416788bc2d112a6ac759: 1
+    - Boolean_3dc53bea235e43ca9db7cc6ceaa2d7f7: 0
+    - Boolean_51567e06c01f4bf2b192e1314a80da83: 0
+    - Vector1_47b5cb2f7ef54b9390f26067348bfde2: 1
+    - Vector1_56ebcaf99d2a4553982aef7074c6b088: 1
+    - Vector1_5c7bc4d9a01b44b0846af50f267cf4d5: 1
+    - Vector1_60237dcd7a1145bdb557fd10ac305e14: 0.2
+    - Vector1_694384145e2044349ec43d4dd5245dca: 1
+    - Vector1_75e32a6f88cf4d7a99742960a3511167: 0
+    - Vector1_8273253d130f416e8073b5354734ed43: 1
+    - Vector1_9698f7058ceb41918e7effdc88f40d06: 1
+    - Vector1_f8c5642c3fa0435185853b976bd45416: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -99,12 +119,13 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metallic: 0
+    - _Metallic: 0.18
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0
+    - _Smoothness: 0.066
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -113,8 +134,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
-    - _Color: {r: 0.3396226, g: 0.3396226, b: 0.3396226, a: 1}
+    - Color_66b000baf26543adb70b9af1e730a75d: {r: 0.33962262, g: 0.33962262, b: 0.33962262,
+        a: 0}
+    - Color_af7d49c74ee94c3da55c0b443056f361: {r: 0, g: 0, b: 0, a: 0}
+    - Color_fb2ee60f53a34adf809413e8eaa3f331: {r: 1, g: 1, b: 1, a: 1}
+    - Vector2_4e31db3b2aa0454793f672ac09c62288: {r: 0, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 1}
+    - _Color: {r: 0.23584905, g: 0.23584905, b: 0.23584905, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []

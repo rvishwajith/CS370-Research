@@ -1,18 +1,32 @@
 <html>
 
 <head>
-
+    <link rel="icon" href="/favicon.ico">
+    <script src="js/form-util.js"></script>
+    <script src="js/auth.js"></script>
 </head>
 
 <body>
-    <form id="auth-form">
+    <p><a href="sitemap.html">Navigation</a></p>
+    <p><a href="index.html">Home</a></p>
+
+    <h1>login.html</h1>
+    <p>Enter your username and password to login.</p>
+    <form id="auth-form" onsubmit="tryAuthUserPwd('auth-form-user','auth-form-pwd')">
         <label for="auth-user">Username</label><br>
-        <input type="text" id="auth-user" placeholder="Username">
-        <label for="auth-pwd">Password</label>
-        <input type="text" id="auth-form-pwd" placeholder="Password">
-        <input type="checkbox" id="login-form-save" value="Remember Me">
-        <input type="submit" value="Login">
+        <input type="text" id="auth-form-user" placeholder="Username" value="username"><br>
+        <br>
+        <label for="auth-pwd">Password</label><br>
+        <input type="text" id="auth-form-pwd" placeholder="Password" value="password"><br>
+        <br>
+        <input type="checkbox" id="save-auth-data" value="Remember Me">
+        <label for="login-form-save">Remember Me</label>
+        <br>
+        <input type="submit" value="Sign In">
     </form>
+    <script>
+        disableFormReload(document.getElementById('auth-form'))
+    </script>
 </body>
 
 </html>

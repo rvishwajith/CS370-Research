@@ -1574,7 +1574,7 @@ MonoBehaviour:
   weaponType: 2
   weaponCooldownTime: 0.15
   muzzlePoint: {fileID: 1855324445}
-  muzzleFlashPrefab: {fileID: 1141473407106338980, guid: 776efe623f0f14113a803c8166efa470,
+  muzzleFlashPrefab: {fileID: 4300533007854612, guid: c0ba3632b7c0449119e9f077de6249bf,
     type: 3}
   bulletTracerPrefab: {fileID: 6759810299562109433, guid: 68a92e13ae0334627967a3a94bd781b1,
     type: 3}
@@ -6404,6 +6404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8365239191793013407, guid: 934c479d94a354b8db692265635676c8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

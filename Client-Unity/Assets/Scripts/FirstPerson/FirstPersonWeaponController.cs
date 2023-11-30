@@ -12,10 +12,19 @@ public class FirstPersonWeaponController : MonoBehaviour
 
     [Header("Muzzle Flash")]
     [SerializeField] private Transform muzzlePoint;
-    [SerializeField] private ParticleSystem muzzleFlashPrefab;
+    [SerializeField] private Transform muzzleFlashPrefab;
+    private ParticleSystem muzzleFlashPrefabParticle;
 
     [Header("Bullet Tracers")]
     [SerializeField] private LineRenderer bulletTracerPrefab;
+
+    private void Start()
+    {
+        if (muzzleFlashPrefab)
+        {
+            muzzleFlashPrefabParticle = muzzleFlashPrefab.GetComponentInChildren<ParticleSystem>();
+        }
+    }
 
     private void Update()
     {
@@ -73,7 +82,7 @@ public class FirstPersonWeaponController : MonoBehaviour
 
         void AddMuzzleFlash()
         {
-            var muzzleFlashInstance = Instantiate(muzzleFlashPrefab, muzzlePoint);
+            var muzzleFlashInstance = Instantiate(muzzleFlashPrefabParticle, muzzlePoint);
             var lifetime = 0.05f;
 
             muzzleFlashInstance.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
@@ -84,7 +93,7 @@ public class FirstPersonWeaponController : MonoBehaviour
 
         if (weapon != null && muzzlePoint != null)
         {
-            if (muzzleFlashPrefab != null)
+            if (muzzleFlashPrefabParticle != null)
                 AddMuzzleFlash();
             if (bulletTracerPrefab != null)
                 AddBulletTracer();

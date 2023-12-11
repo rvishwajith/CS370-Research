@@ -37,34 +37,29 @@ function tryAuthUserPwd(usernameId, pwdId) {
 /** 
  * Socket Options:
  * Protocol: ws = HTTP, wss = HTTPs
- * Address: Server IP (192.168.0.1 = local)
+ * Address: Server IP, 127.0.0.1 = local
  * Port: 80/8080 = HTTP, 443 = HTTPs
  * Example: new Websocket(ws://192.168.0.1:80/)
  **/
 function trySocketAuthUserPwd(username, pwd) {
 
-    const socket = new WebSocket('ws://192.168.0.1:17327');
-    console.log('created socket with username/password.');
+    const socket = new WebSocket('ws://127.0.1:32000');
+    console.log('created username/pwd auth socket.');
 
-    socket.onopen = function (e) {
-        console.log("trySocketAuthUserPwd: socket successfully opened")
-        //alert("Sending to server")
-        socket.send('{username:' + username + '\n,password:' + pwd + '}')
+    socket.onopen = (event) => {
+        console.log('trySocketAuthUserPwd: socket successfully opened');
+        socket.send('{username:' + username + '\n,password:' + pwd + '}');
     }
 
-    socket.onmessage = function (event) {
-        console.log(`[message] Data received from server: ${event.data}`)
-    }
+    socket.onmessage = (event) => { console.log('Data received from server: ${event.data}'); }
 
-    socket.onclose = function (event) {
+    socket.onclose = (event) => {
         if (!event.wasClean) {
-            console.log('[close] Connection died unexpectedly! Probably ERROR 1006.')
-            return
+            console.log('Connection died unexpectedly, server may have closed. Possible ERROR 1006.');
+            return;
         }
-        console.log(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`)
+        console.log('Connection closed cleanly, code=${event.code} reason=${event.reason}');
     }
 
-    socket.onerror = function (error) {
-        console.log(`socket error:`, error)
-    }
+    socket.onerror = (error) => { console.log('socket error:', error); };
 }

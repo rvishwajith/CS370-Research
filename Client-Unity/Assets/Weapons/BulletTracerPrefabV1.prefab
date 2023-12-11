@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6677803615703595427}
   - component: {fileID: 6759810299562109433}
   m_Layer: 0
-  m_Name: BulletTracerPrefab
+  m_Name: BulletTracerPrefabV1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.01
+    widthMultiplier: 0.005
     widthCurve:
       serializedVersion: 2
       m_Curve:
